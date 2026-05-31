@@ -1,0 +1,53 @@
+{
+  "store_id": "STORE_BLR_002",
+  "store_name": "Brigade_Bangalore",
+  "pos_store_id": "ST1008",
+  "open_hours": {"open": "10:00", "close": "22:00"},
+  "cameras": [
+    {"camera_id": "CAM_ENTRY_01", "type": "entry_exit"},
+    {"camera_id": "CAM_FLOOR_01", "type": "floor"},
+    {"camera_id": "CAM_BILLING_01", "type": "billing"}
+  ],
+  "zones": {
+    "ENTRY_EXIT": {
+      "y_range": [0.0, 0.20], "x_range": [0.0, 1.0],
+      "sku_zone": null,
+      "camera_ids": ["CAM_ENTRY_01"]
+    },
+    "SKINCARE": {
+      "y_range": [0.20, 0.45], "x_range": [0.0, 0.50],
+      "sku_zone": "SKINCARE",
+      "camera_ids": ["CAM_FLOOR_01"]
+    },
+    "HAIRCARE": {
+      "y_range": [0.20, 0.45], "x_range": [0.50, 1.0],
+      "sku_zone": "HAIRCARE",
+      "camera_ids": ["CAM_FLOOR_01"]
+    },
+    "MAKEUP": {
+      "y_range": [0.45, 0.70], "x_range": [0.0, 0.50],
+      "sku_zone": "MAKEUP",
+      "camera_ids": ["CAM_FLOOR_01"]
+    },
+    "FRAGRANCE": {
+      "y_range": [0.45, 0.70], "x_range": [0.50, 1.0],
+      "sku_zone": "FRAGRANCE",
+      "camera_ids": ["CAM_FLOOR_01"]
+    },
+    "PERSONAL_CARE": {
+      "y_range": [0.70, 0.85], "x_range": [0.0, 0.50],
+      "sku_zone": "PERSONAL_CARE",
+      "camera_ids": ["CAM_FLOOR_01"]
+    },
+    "BATH_BODY": {
+      "y_range": [0.70, 0.85], "x_range": [0.50, 1.0],
+      "sku_zone": "BATH_AND_BODY",
+      "camera_ids": ["CAM_FLOOR_01"]
+    },
+    "BILLING": {
+      "y_range": [0.85, 1.0], "x_range": [0.0, 1.0],
+      "sku_zone": "BILLING",
+      "camera_ids": ["CAM_BILLING_01"]
+    }
+  }
+}
