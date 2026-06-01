@@ -1,12 +1,11 @@
-fastapi==0.136.3
+﻿fastapi==0.115.0
 uvicorn==0.48.0
 sqlalchemy==2.0.50
 pydantic==2.13.4
 structlog==25.5.0
 pandas==3.0.3
 openpyxl==3.1.5
-ultralytics==8.4.57
-opencv-python==4.13.0.92
+opencv-python-headless==4.13.0.92
 requests==2.34.2
 rich==15.0.0
 pytest==9.0.3
