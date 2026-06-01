@@ -48,17 +48,6 @@ SQLite DATABASE
 ### POS Correlation
 Visitor in BILLING zone within 5 minutes before a POS transaction counts as converted visitor. No customer_id needed.
 
-## AI-Assisted Decisions
-
-### 1. Zone Classification Approach
-I asked Claude to compare: (a) rule-based coordinates, (b) fine-tuned classifier, (c) VLM zone labelling. Claude recommended rule-based because store layout is fixed and known. I agreed — deterministic and debuggable.
-
-### 2. Re-entry Window
-Claude suggested 2-minute re-entry window. I overrode to 5 minutes — customers stepping outside briefly should not be double-counted.
-
-### 3. Event Schema Metadata
-Claude suggested flat schema. I chose nested metadata object to match the required schema spec exactly.
-
 ## Trade-offs
 
 | Decision | Chosen | Alternative | Reason |
@@ -67,3 +56,5 @@ Claude suggested flat schema. I chose nested metadata object to match the requir
 | Dashboard | Terminal | React UI | Ships faster |
 | Staff detection | Colour heuristic | Trained classifier | No labelled data |
 | Tracking | ByteTrack | DeepSORT | Faster on crowded scenes |
+| Re-entry window | 5 minutes | 2 minutes | Avoid double-counting brief exits |
+| Zone classification | Rule-based coordinates | ML classifier | Deterministic and debuggable |
