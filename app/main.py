@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 import time, uuid, structlog
 
 from app.ingestion import router as ingest_router
@@ -8,6 +9,7 @@ from app.metrics   import router as metrics_router
 from app.funnel    import router as funnel_router
 from app.anomalies import router as anomaly_router
 from app.health    import router as health_router
+from app.database  import init_db
 
 structlog.configure(
     processors=[
@@ -20,10 +22,18 @@ structlog.configure(
 )
 log = structlog.get_logger()
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()   # Docker start అయినప్పుడు tables auto-create అవుతాయి
+    yield
+
+
 app = FastAPI(
     title="Store Intelligence API",
     description="Purplle Tech Challenge 2026 — Brigade Bangalore",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
